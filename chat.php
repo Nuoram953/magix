@@ -24,8 +24,8 @@ $data = $action->execute();
 <body>
 
    
-    <form action="logout.php" method="post">
-        <button type="submit">Signout</button>
+    <form action="" method="post">
+        <input type="submit" value="Signout" name="signout">
     </form>
     
     

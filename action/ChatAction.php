@@ -13,6 +13,20 @@ class ChatAction extends CommonAction
 
     protected function executeAction()
     {
+
+        if(isset($_POST["signout"])){
+            $data = [];
+            $data["key"] = $_SESSION["key"];
+            $result = parent::callAPI("signout", $data);
+            if ($result == "INVALID_KEY") {
+                // err
+            } else {
+                session_destroy();
+                header("location:login.php");
+            }
+    
+            return [];
+        }
    
         return [];
     }
