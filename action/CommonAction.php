@@ -12,7 +12,8 @@
         }
 
         public function execute() {
-            $this->executeAction();
+            $data = $this->executeAction();
+            return $data;
         }
 
         /**

@@ -22,7 +22,7 @@ class ChatAction extends CommonAction
                 // err
             } else {
                 session_destroy();
-                header("location:login.php");
+                header("location:index.php");
             }
     
             return [];
