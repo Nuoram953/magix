@@ -20,7 +20,9 @@ require_once("partials/header.php");
                 </div>
                 <input type=" text" name="username" id="username" placeholder="Username">
                     <input type="password" name="password" id="password" placeholder="Password">
-                    <button type="submit" id="button_connection">Connection</button>
+                    <div class="button">
+                        <button type="submit">Connection</button>
+                    </div>
                 </div>
         </form>
     </div>

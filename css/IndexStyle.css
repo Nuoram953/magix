@@ -2,9 +2,20 @@
   --title-margin: 500px;
 }
 
+@font-face {
+  font-family: "Minecraft";
+  src: url("../assets/font/Minecraft/minecraft.eot?") format("eot"),
+    url("../assets/font/Minecraft/minecraft.woff") format("woff"),
+    url("../assets/font/Minecraft/minecraft.ttf") format("truetype"),
+    url("../assets/font/Minecraft/minecraft.svg#Minecraft") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   margin: 0;
   padding: 0;
+  font-family: "Minecraft";
 }
 
 .title {
@@ -24,11 +35,11 @@ html {
   transform: translate(-50%, -50%);
 }
 
-.form-login {
+.form-login,
+input {
   display: flex;
   flex-direction: column;
   border: 3px solid green;
-  padding: 25px;
 }
 
 .form-login > input {
@@ -36,11 +47,58 @@ html {
   margin: 15px;
 }
 
+input::placeholder{
+    font-family: 'Minecraft';
+}
+
 button {
-  margin-top: 30px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  height: auto;
+  width: auto;
 }
 
 .error-message {
   border: 3px solid red;
   padding: 10px;
+}
+
+/*Les lignes de codes si dessous sont tirées du site http://charliecowan.co.uk/mcbuttongenerator/ pour l'apparence du bouton*/
+
+.button {
+  height: 10%;
+  width: 50%;
+  background-image: url("http://charliecowan.co.uk/mcbuttongenerator/button_center.png");
+  background-repeat: repeat;
+  padding: 0;
+  font-family: Minecraft;
+  text-align: center;
+  color: white;
+  text-shadow: 3px 3px #4c4c4c;
+  border-bottom: 4px solid #565656;
+  border-right: 2px solid #565656;
+  border-left: 2px solid #aaa;
+  border-top: 2px solid #aaa;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.button button {
+  position: relative;
+  line-height: 40px;
+  bottom: 3px;
+}
+
+.button:hover {
+  border-bottom: 4px solid #59639a;
+  border-right: 2px solid #59639a;
+  border-left: 2px solid #bdc6ff;
+  border-top: 2px solid #bdc6ff;
+  background-image: url("http://charliecowan.co.uk/mcbuttongenerator/button_active_center.png");
+  color: #ffffa0;
 }
