@@ -5,11 +5,13 @@ require_once("action/IndexAction.php");
 $action = new IndexAction();
 $data = $action->execute();
 
+$titlePage = "Minecraft Magix - Login";
+
 require_once("partials/header.php");
 ?>
 
 
-<body>
+<body class="login">
 
     <div class="login-container">
         <img src="assets/Minecraft.png" alt="Minecraft Magix Title" id="login-title">
