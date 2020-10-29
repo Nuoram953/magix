@@ -18,34 +18,6 @@ html {
   font-family: "Minecraft";
 }
 
-.title {
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#login-title {
-  position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.form-login,
-input {
-  display: flex;
-  flex-direction: column;
-  border: 3px solid green;
-}
-
-.form-login > input {
-  padding: 10px;
-  margin: 15px;
-}
 
 input::placeholder{
     font-family: 'Minecraft';
@@ -88,12 +60,6 @@ button {
   font-size: 16px;
 }
 
-.button button {
-  position: relative;
-  line-height: 40px;
-  bottom: 3px;
-}
-
 .button:hover {
   border-bottom: 4px solid #59639a;
   border-right: 2px solid #59639a;
@@ -101,4 +67,37 @@ button {
   border-top: 2px solid #bdc6ff;
   background-image: url("http://charliecowan.co.uk/mcbuttongenerator/button_active_center.png");
   color: #ffffa0;
+}
+
+
+.login-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  
+}
+
+.login-info{
+  margin: 150px;
+  width: 70%
+}
+
+.login-info>form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+form>div,input{
+  margin: 25px;
+  padding: 10px;
 }
