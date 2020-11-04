@@ -25,7 +25,30 @@ class ChatAction extends CommonAction
                 header("location:index.php");
             }
     
-            return [];
+        
+        }
+        else if (isset($_POST["practice"])){
+            $data = [];
+            $data["key"] = $_SESSION["key"];
+            $data["type"] = "TRAINING";
+            $result = parent::callAPI("games/auto-match", $data);
+            if ($result == "INVALID_KEY") {
+                // err
+            }
+            else if ($result == "INVALID_GAME_TYPE"){
+
+            }
+            else if ($result == "DECK_INCOMPLETE"){
+
+            }
+            else if ($result == "DECK_INCOMPLETE"){
+
+            }
+            else {
+                session_destroy();
+                header("location:game.php");
+            }
+
         }
    
         return [];

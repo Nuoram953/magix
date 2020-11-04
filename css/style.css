@@ -1,6 +1,9 @@
-:root {
-  --title-margin: 500px;
-}
+/* * {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+} */
+
 
 @font-face {
   font-family: "Minecraft";
@@ -13,10 +16,17 @@
 }
 
 html {
-  margin: 0;
-  padding: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden; 
   font-family: "Minecraft";
   
+}
+
+body{
+  margin: 0px;
 }
 
 input::placeholder {
@@ -37,6 +47,8 @@ button {
 
 .login{
   background-image: url("../assets/backgrounds/login.jpg");
+  background-repeat: no-repeat;
+
 }
 
 .error-message {
@@ -107,3 +119,27 @@ input {
 form > div > button {
   padding: 10px;
 }
+
+.chat-container{
+  margin: 0;
+  height: 100vh;
+
+  
+}
+
+
+
+.chat-button>form{
+  
+  width: 600px;
+  height: 400px;
+  
+}
+
+.chat-button>form>button{
+  margin:25px;
+}
+
+
+
+

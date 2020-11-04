@@ -12,7 +12,6 @@ require_once("partials/header.php");
 
 
 <body class="login">
-
     <div class="login-container">
         <img src="assets/Minecraft.png" alt="Minecraft Magix Title" id="login-title">
         <div class="login-info">

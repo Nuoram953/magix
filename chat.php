@@ -16,13 +16,21 @@ require_once("partials/header.php");
 
 
 <body>
+    <div class="chat-container">
+        <div class="chat-button">
+            <form action="" method="post">
+                <button class="button" type="submit" value="begin" name="begin">Jouer</button>
+                <button class="button" type="submit" value="practice" name="practice">Pratique</button>
+                <button class="button" type="submit" value="Signout" name="signout">Quitter</button>
+            </form>
+        </div>
+
+        
+        <iframe id="chat-box" style="width:700px;height:240px;" onload="applyStyles(this)" src=<?= "https://magix.apps-de-cours.com/server/#/chat/" . $_SESSION["key"] ?>></iframe>
+       
+    </div>
 
 
-    <form action="" method="post">
-        <input type="submit" value="Signout" name="signout">
-    </form>
-
-    <iframe style="width:700px;height:240px;" onload="applyStyles(this)" src=<?= "https://magix.apps-de-cours.com/server/#/chat/" . $_SESSION["key"] ?>></iframe>
 
 
 
