@@ -152,16 +152,29 @@ iframe{
   flex-direction: column;
 }
 
+.game-ui-ennemy{
+  height: 200px;
+}
+
+.game-board{
+  height: 500px;
+}
+
 .game-ui-player{
   display:flex;
   flex-direction: row;
   justify-content: space-between;
+  bottom:0;
+  position:fixed;
+  width:100%;
+  background-color: gray;
 }
 
 
 .gup-numbers{
   display:flex;
   flex-direction: column;
+  justify-content: space-between;
   width:120px;
   
 }
@@ -169,24 +182,54 @@ iframe{
   background-repeat:no-repeat;
   background-size: contain;
   vertical-align: middle;
-  justify-content: center;
+  
+  text-align: center;
+  margin: 15px;
+  
   align-items: center;
-  height: 65px;
-  width: 65px;
+  height: 50px;
+  width: 50px;
 }
 
-#health{
-  background-image:url("../assets/UI/image-removebg-preview.png");
-  background-size: 50px;
+.gup-numbers>div>span {
+ 
+  display: inline-block;
+}
+
+.health{
+  background-image:url("../assets/UI/newHealth.png"); 
+  margin-top: 10px;
+}
+
+
+
+.tour{
+  background-image:url("../assets/UI/newOrb.png");
   
 }
 
-#tour{
-  background-image:url("../assets/UI/orb.png");
+.cards-remaining{
+  background-image:url("../assets/UI/newBook.png");
   
 }
 
-#cards-remaining{
-  background-image:url("../assets/UI/book.png");
+.gup-button> form{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gup-button>form>button{
+  margin: 15px;
+  width: 100px;
+  height: 50px;
   
+}
+
+.gup-cards{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  vertical-align:middle;
+  width:fit-content;
 }

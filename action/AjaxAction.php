@@ -8,10 +8,24 @@
         }
 
         protected function executeAction() {
-           
+        
+            $data = [];
+            $data["key"] = $_SESSION["key"];
+
+            $result = parent::callAPI("games/state", $data);
+
+            if ($result == "INVALID_KEY") {
+                header("location:chat.php");
+
+            } else {
+                // Pour voir les informations retournées : var_dump($result);exit;
+                
+                
+            }
+            
 
         
 
-            return compact("");
+            return compact("result");
         }
     }
