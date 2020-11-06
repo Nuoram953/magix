@@ -6,9 +6,9 @@ window.addEventListener("load", ()=>{
 
 const applyStyles = iframe => {
     let styles = {
-        fontColor : "#333",
-        backgroundColor : "rgba(87, 41, 5, 0.2)",
-        fontGoogleName : "Sofia",
+        fontColor : "#ffffff",
+        backgroundColor : "rgba(0, 0, 0, 1)",
+        fontGoogleName : "VT323",
         fontSize : "20px",
     }
     

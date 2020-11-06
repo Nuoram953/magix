@@ -10,7 +10,7 @@ $titlePage = "Minecraft Magix - Login";
 require_once("partials/header.php");
 ?>
 
-
+</head>
 <body class="login">
     <div class="login-container">
         <img src="assets/Minecraft.png" alt="Minecraft Magix Title" id="login-title">
@@ -25,6 +25,7 @@ require_once("partials/header.php");
                 <div class="button">
                     <button type="submit">Connection</button>
                 </div>
+
                 
             </form>
         </div>

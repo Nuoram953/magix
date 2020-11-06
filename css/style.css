@@ -4,7 +4,6 @@
   outline: solid #f00 1px !important;
 } */
 
-
 @font-face {
   font-family: "Minecraft";
   src: url("../assets/font/Minecraft/minecraft.eot?") format("eot"),
@@ -20,12 +19,11 @@ html {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden; 
+  overflow-x: hidden;
   font-family: "Minecraft";
-  
 }
 
-body{
+body {
   margin: 0px;
 }
 
@@ -45,10 +43,9 @@ button {
   width: auto;
 }
 
-.login{
+.login {
   background-image: url("../assets/backgrounds/login.jpg");
   background-repeat: no-repeat;
-
 }
 
 .error-message {
@@ -120,26 +117,76 @@ form > div > button {
   padding: 10px;
 }
 
-.chat-container{
+.chat-container {
   margin: 0;
   height: 100vh;
-
-  
+  background-image: url("../assets/backgrounds/chat.jpg");
 }
 
+.chat-button {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 
-
-.chat-button>form{
-  
+.chat-button > form {
   width: 600px;
   height: 400px;
+  display: flex;
+}
+
+
+.chat-button > form > button {
+  margin: 25px;
+}
+
+iframe{
+  position: fixed;
+  bottom: 0;
+  left: 0;
   
 }
 
-.chat-button>form>button{
-  margin:25px;
+.UI{
+  display:flex;
+  flex-direction: column;
+}
+
+.game-ui-player{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 
+.gup-numbers{
+  display:flex;
+  flex-direction: column;
+  width:120px;
+  
+}
+.gup-numbers>div{
+  background-repeat:no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
+  width: 65px;
+}
 
+#health{
+  background-image:url("../assets/UI/image-removebg-preview.png");
+  background-size: 50px;
+  
+}
 
+#tour{
+  background-image:url("../assets/UI/orb.png");
+  
+}
+
+#cards-remaining{
+  background-image:url("../assets/UI/book.png");
+  
+}

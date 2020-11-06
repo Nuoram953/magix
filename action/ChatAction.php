@@ -33,7 +33,7 @@ class ChatAction extends CommonAction
             $data["type"] = "TRAINING";
             $result = parent::callAPI("games/auto-match", $data);
             if ($result == "INVALID_KEY") {
-                // err
+                header("location:index.php");
             }
             else if ($result == "INVALID_GAME_TYPE"){
 
@@ -45,7 +45,6 @@ class ChatAction extends CommonAction
 
             }
             else {
-                session_destroy();
                 header("location:game.php");
             }
 
