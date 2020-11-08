@@ -44,7 +44,7 @@ class ChatAction extends CommonAction
             else if ($result == "DECK_INCOMPLETE"){
 
             }
-            else {
+            else if($result == "JOINED_TRAINING") {
                 header("location:game.php");
             }
 

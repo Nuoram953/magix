@@ -37,15 +37,15 @@ require_once("partials/header.php");
                 </div>
                 <div class="gup-cards">
                     <template id="player-card-template">
-                        <span id="card-cost">10</span>
-                        <div id="card-picture"></div>
-                        <div id="card-info">
-                            <span id="card-title"></span>
-                            <span id="card-description"></span>
+                        <span class="card-cost">10</span>
+                        <div class="card-picture"></div>
+                        <div class="card-info">
+                            <span class="card-title"></span>
+                            <span class="card-description"></span>
                         </div>
-                        <div>
-                            <img src="" alt="" id="card-attack">
-                            <img src="" alt="" id="card-health">
+                        <div class="card-stats">
+                            <div class="card-attack"></div>
+                            <div class="card-health"></div>
                         </div>
 
                     </template>

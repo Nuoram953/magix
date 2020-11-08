@@ -19,8 +19,6 @@
 
             } else {
                 // Pour voir les informations retournées : var_dump($result);exit;
-                
-                
             }
             
 

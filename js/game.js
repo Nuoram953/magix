@@ -1,8 +1,8 @@
-window.addEventListener("load", () => {
 
-  state();
-})
 
+let playerHand=null;
+let templateHTML = null;
+let cardInHand = [];
 
 
 const state = () => {
@@ -15,35 +15,43 @@ const state = () => {
     .then((data) => {
       console.log(data); // contient les cartes/état du jeu.
 
-      let playerHand = document.document.querySelector(".gup-cards").innerHTML += "";
-      let templateHTML = document.querySelector("#game-template").innerHTML;
+      playerHand = document.querySelector(".gup-cards").innerHTML += "";
+      templateHTML = document.querySelector("#player-card-template").innerHTML;
 
       document.querySelector(".tour").textContent = String(data.mp);
 
       //Gestion des cartes
-      data.hand.forEach(card => {
+      console.log(data)
+      let cards = data.hand
+      
+      cards.forEach(card => {
 
-        let div = document.createElement("div");
-        div.innerHTML = templateHTML;
-        div.className = "card"
+        if (!cardInHand.includes(card.id) && document.querySelector(".gup-cards").childElementCount <= 5 ){
+          cardInHand.push(card.id);
+          let div = document.createElement("div");
+          div.innerHTML = templateHTML;
+          div.className = "card"
+          div.id = "card"+card.id
+          
+    
+          div.querySelector(".card-description").innerHTML = String(card.mechanics) + ": Destroy all minions";
+          div.querySelector(".card-attack").innerHTML = String(card.atk);
+          div.querySelector(".card-health").innerHTML = String(card.hp);
+          div.querySelector(".card-cost").innerHTML = String(card.cost);
   
-        div.querySelector("#card-description").innerHTML = String(card.mechanics) + ": Destroy all minions";
-        div.querySelector("#card-attack").innerHTML = String(card.atk);
-        div.querySelector("#card-health").innerHTML = String(card.hp);
-        div.querySelector("#card-cost").innerHTML = String(card.cost);
+          document.querySelector(".gup-cards").appendChild(div)
+        }
 
-        playerHand.appendChild(div);
+       
       })
 
-     
-
-
-
+  
 
       setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     });
 };
 
 window.addEventListener("load", () => {
+  
   setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
 });

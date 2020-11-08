@@ -228,8 +228,74 @@ iframe{
 
 .gup-cards{
   display:flex;
+  
   flex-direction:row;
   justify-content:center;
   vertical-align:middle;
-  width:fit-content;
+  width:1200px;
 }
+
+.card{
+  display:flex;
+  flex-direction:column;
+  height: 200px;
+  width: 275px;
+  justify-content:center;
+  align-items:center;
+  vertical-align:middle;
+  border: #59639a 1px solid;
+  margin: 15px;
+  font-size:15px;
+  
+}
+
+.card-picture{
+  height: 50px;
+  width: 200px;
+  padding: 10px;
+}
+
+.card-info{
+  display:flex;
+  flex-direction: column;
+  height: 75px;
+  width: 200px;
+}
+
+
+
+.card-cost{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.card-stats{
+  display:flex;
+  justify-content:space-around;
+  width: 200px;
+  height: 35px;
+  padding-top: 8px;
+  color: white;
+}
+
+.card-health{
+  background-image: url("../assets/UI/newHealth.png");
+  background-size: 35px;
+  background-position: center center;
+  width: 35px;
+  
+ 
+}
+
+.card-attack{
+  background-image: url("../assets/UI/attack-removebg-preview.png");
+  background-size: 35px;
+  background-position: center center;
+  width: 35px;
+
+}
+
+
+
+
