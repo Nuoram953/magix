@@ -19,7 +19,9 @@ const state = () => {
 
       document.querySelector(".tour").textContent = String(data.mp);
 
-      //Gestion des cartes
+      /**
+       * Gestion des cartes et de leur apparence
+       */
       let cards = data.hand;
 
       if (data != "WAITING"){
@@ -30,26 +32,24 @@ const state = () => {
             cardInHand.push(card.id);
             let div = document.createElement("div");
             div.innerHTML = templateHTML;
-            div.className = "card";
             div.id = card.id;
             div.setAttribute("onclick","card(this)");
-            
-         
-            
             div.querySelector(".card-description").innerHTML = String(card.mechanics) + ": Destroy all minions";
             div.querySelector(".card-attack").innerHTML = String(card.atk);
             div.querySelector(".card-health").innerHTML = String(card.hp);
             div.querySelector(".card-cost").innerHTML = String(card.cost);
-            
+            //TODO: change image depending on type of cards   
+            div.querySelector(".card-picture").style.backgroundImage = "url(assets/cards/zombie.jpg)";
 
-            
+            if (card.cost <= data.mp){
+              div.querySelector(".card").style.border = "2px green solid";
+            }
+
+
             document.querySelector(".gup-cards").appendChild(div);
-    
-            
-            
           }
-  
 
+          
         })
       }
       

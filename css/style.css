@@ -167,6 +167,7 @@ iframe{
   bottom:0;
   position:fixed;
   width:100%;
+  height: 275px;
   background-color: gray;
 }
 
@@ -238,28 +239,37 @@ iframe{
 .card{
   display:flex;
   flex-direction:column;
-  height: 200px;
-  width: 275px;
+  height: 225px;
+  width: 200px;
   justify-content:center;
   align-items:center;
   vertical-align:middle;
   border: #59639a 1px solid;
   margin: 15px;
   font-size:15px;
+  background-image: url("../assets/UI/block-minecraft-wallpaper-680x382.jpg");
+  background-size: cover;
+  color: white;
+  
   
 }
 
 .card-picture{
-  height: 50px;
-  width: 200px;
-  padding: 10px;
+  height: 85px;
+  width: 180px;
+  
+  background-size: cover;
+  
+  margin: 0 5px 5px 5px;
+  border: white 2px solid;
+
 }
 
 .card-info{
   display:flex;
   flex-direction: column;
   height: 75px;
-  width: 200px;
+  width: 180px;
 }
 
 
@@ -273,7 +283,7 @@ iframe{
 .card-stats{
   display:flex;
   justify-content:space-around;
-  width: 200px;
+  width: 180px;
   height: 35px;
   padding-top: 8px;
   color: white;
