@@ -8,7 +8,7 @@
         }
 
         protected function executeAction() {
-        
+
             $data = [];
             $data["key"] = $_SESSION["key"];
 
@@ -17,7 +17,9 @@
             if ($result == "INVALID_KEY") {
                 header("location:chat.php");
 
-            } else {
+            } 
+        
+            else {
                 // Pour voir les informations retournées : var_dump($result);exit;
             }
             
