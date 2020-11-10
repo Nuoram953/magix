@@ -27,7 +27,6 @@ class GameAction extends CommonAction
                 header("location:chat.php");
             } else {
                 // Pour voir les informations retournées : var_dump($result);exit;
-
             }
         }
 

@@ -4,6 +4,11 @@
   outline: solid #f00 1px !important;
 } */
 
+:root{
+  --card-width:170px;
+  --card-info-width:150px;
+}
+
 @font-face {
   font-family: "Minecraft";
   src: url("../assets/font/Minecraft/minecraft.eot?") format("eot"),
@@ -228,25 +233,34 @@ iframe{
 }
 
 .gup-cards{
-  display:flex;
-  
+  display:inline-flex;
   flex-direction:row;
-  justify-content:center;
-  vertical-align:middle;
-  width:1200px;
+  justify-content:space-around;
+  
+  width: 1200px;
+  padding: 15px;
+  height: fit-content;
+  
+
+ 
+  
+}
+.gup-cards>div{
+  margin-inline-start: 20px;
 }
 
 .card{
   display:flex;
   flex-direction:column;
-  height: 225px;
-  width: 200px;
+  height: 245px;
+  width: var(--card-width);
   justify-content:center;
   align-items:center;
-  vertical-align:middle;
-  border: #59639a 1px solid;
-  margin: 15px;
-  font-size:15px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  
+  
+  font-size:12px;
   background-image: url("../assets/UI/block-minecraft-wallpaper-680x382.jpg");
   background-size: cover;
   color: white;
@@ -256,7 +270,7 @@ iframe{
 
 .card-picture{
   height: 85px;
-  width: 180px;
+  width: var(--card-info-width);
   
   background-size: cover;
   
@@ -269,7 +283,8 @@ iframe{
   display:flex;
   flex-direction: column;
   height: 75px;
-  width: 180px;
+  width: var(--card-info-width);
+  padding-bottom: 3px;
 }
 
 
@@ -283,7 +298,7 @@ iframe{
 .card-stats{
   display:flex;
   justify-content:space-around;
-  width: 180px;
+  width: var(--card-info-width);
   height: 35px;
   padding-top: 8px;
   color: white;
@@ -304,6 +319,14 @@ iframe{
   background-position: center center;
   width: 35px;
 
+}
+
+.game-ui-ennemy{
+  background-color: grey;
+}
+
+.cardPossibleToPlay{
+  border: green 2px solid;
 }
 
 

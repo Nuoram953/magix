@@ -22,7 +22,8 @@ require_once("partials/header.php");
         </div>
 
         <div class="game-board">
-
+            <div class="game-cards-ennemy"></div>
+            <div class="game-cards-player"></div>
         </div>
 
         <div class="game-ui-player">
@@ -37,7 +38,7 @@ require_once("partials/header.php");
             </div>
             <div class="gup-cards">
                 <template id="player-card-template">
-                    <div class="card">
+                    
                         <span class="card-cost">10</span>
                         <div class="card-picture"></div>
                         <div class="card-info">
@@ -48,16 +49,16 @@ require_once("partials/header.php");
                             <div class="card-attack"></div>
                             <div class="card-health"></div>
                         </div>
-                    </div>
+                    
 
 
                 </template>
             </div>
             <div class="gup-button">
                 <form action="" method="post">
-                    <button class="button" type="submit" value="heropower" name="heropower">Hero Power</button>
-                    <button class="button" type="submit" value="endturn" name="endturn">End turn</button>
-                    <button class="button" type="submit" value="abandon" name="abandon">Abandon</button>
+                    <button class="button" value="heropower" name="heropower">Hero Power</button>
+                    <button class="button" value="endturn" name="endturn">End turn</button>
+                    <button class="button" value="abandon" name="abandon">Abandon</button>
                     <span id="tour-time-remaining"></span>
                 </form>
             </div>
