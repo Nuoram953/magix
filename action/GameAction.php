@@ -16,19 +16,8 @@ class GameAction extends CommonAction
         if (isset($_POST["abandon"])) {
 
             header("location:chat.php");
-        } else if (isset($_POST["endTurn"])) {
-            $data = [];
-            $data["key"] = $_SESSION["key"];
-            $data["type"] = "END_TURN";
-
-            $result = parent::callAPI("games/action", $data);
-
-            if ($result == "INVALID_KEY") {
-                header("location:chat.php");
-            } else {
-                // Pour voir les informations retournées : var_dump($result);exit;
-            }
-        }
+        } 
+        
 
         return compact(["result"]);
     }

@@ -55,9 +55,9 @@ require_once("partials/header.php");
                 </template>
             </div>
             <div class="gup-button">
-                <form action="" method="post">
+                <form method="post">
                     <button class="button" value="heropower" name="heropower">Hero Power</button>
-                    <button class="button" value="endturn" name="endturn">End turn</button>
+                    <button class="button" id="endTurn" value="endturn" name="endturn">End turn</button>
                     <button class="button" value="abandon" name="abandon">Abandon</button>
                     <span id="tour-time-remaining"></span>
                 </form>
