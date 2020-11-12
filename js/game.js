@@ -60,7 +60,10 @@ const state = () => {
 
 window.addEventListener("load", () => {
   
-  document.querySelector("#endTurn").addEventListener("load",action(null,"END_TURN",null));
+  document.getElementById("endTurn").addEventListener("click",()=>{
+    action(null,"END_TURN",null);
+  });
+  
   setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
 });
 
@@ -121,6 +124,8 @@ function addCardBoard(card, position) {
  * Pour envoyer l'information sur l'action du joueur
  */
 function action(uid,type,cible) {
+
+  console.log(type);
 
   let formData = new FormData();
   formData.append("uid",uid);
