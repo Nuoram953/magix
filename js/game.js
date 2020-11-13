@@ -59,8 +59,11 @@ const state = () => {
         })
 
     
-
+        removeCard(data);
       }
+
+      
+      
 
       setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     });
@@ -131,22 +134,21 @@ function addCardBoard(card, position) {
 }
 
 
-const update = gdata =>{
 
-}
 
 const removeCard = newData =>{
+  
+  let children = document.querySelector(".game-cards-player").children;
+  let arrayChildren = Array.from(children);
 
-  newData.board.forEach(card =>{
-    if (card.hp <=0){
-      document.getElementById(card.uid).remove();
-    }
-  })
+  let placeholder = Array.from(newData.board);
+  
 
-  newData.opponent.board.forEach(card =>{
-    if (card.hp <=0){
-      document.getElementById(card.uid).remove();
+  arrayChildren.forEach(child =>{
+    if(!placeholder.some(item => item.uid == child.id)){
+      child.remove()
     }
+
   })
 
 }
@@ -175,6 +177,9 @@ function action(uid,type,cible) {
   .then(response => response.json())
   .then(data => {
 
+
+    
+
     if (type == "PLAY"){
       if (typeof data !== "object") {
         if (data == "GAME_NOT_FOUND") {
@@ -194,10 +199,24 @@ function action(uid,type,cible) {
     }
     else if (type =="ATTACK"){
      
-      console.log(data);
-      removeCard(data)
+      if (typeof data !== "object") {
+        if (data == "GAME_NOT_FOUND") {
+            // Fin de la partie. Est-ce que j’ai gagné? Je dois appeler user-info
+        }
+      }
+      else {
+        // maVariable est un objet. On pourrait faire, par exemple, maVariable.game.hp ou 
+        // maVariable.player.mp
+       
+        
+        
+        
+      }
+      
 
     }
+
+    
     
   })
 
