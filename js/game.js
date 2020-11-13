@@ -39,19 +39,27 @@ const state = () => {
           if (( document.getElementById(card.uid)==null && document.getElementById(card.uid) == undefined ) && document.querySelector(".gup-cards").childElementCount <= 8) {
             addCardBoard(card, ".gup-cards");
           }
-
           card.cost <= data.mp ? document.getElementById(card.uid).style.border = "5px green solid" : document.getElementById(card.uid).style.border = "none";
-          //Si la carte peu être joué, on ajoute une border verte
-
         });
 
         //Les cartes sur le jeu cote joueur
         data.board.forEach((card) => {
-          if (
-            document.querySelector(".game-cards-player").childElementCount <= 7
-          )
+          if (( document.getElementById(card.uid)==null && document.getElementById(card.uid) == undefined ) && document.querySelector(".game-cards-player").childElementCount <= 7){
             addCardBoard(card, ".game-cards-player");
+          }
+         
+          card.mechanics.includes("Taunt") ? document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "visible": document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "hidden";
         });
+
+        data.opponent.board.forEach((card) => {
+          if (( document.getElementById(card.uid)==null && document.getElementById(card.uid) == undefined ) && document.querySelector(".game-cards-ennemy").childElementCount <= 7){
+            addCardBoard(card, ".game-cards-ennemy");
+          }
+           card.mechanics.includes("Taunt") ? document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "visible": document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "hidden";
+        })
+
+    
+
       }
 
       setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
@@ -78,11 +86,13 @@ const playCard = (evt) => {
 };
 
 const playCardBoard = (evt) => {
-  attackCardWith = evt.uid
+  attackCardWith = evt.id
+  console.log(attackCardWith);
 }
 
 const attackCard = (evt) => {
-  action(evt.id,"ATTACK",attackCardWith);
+  console.log(evt.id);
+  action(attackCardWith,"ATTACK",evt.id);
 }
 
 
@@ -98,7 +108,7 @@ function addCardBoard(card, position) {
     case ".gup-cards":
       div.setAttribute("onclick", "playCard(this)");
       break;
-    case ".gme-cards-player":
+    case ".game-cards-player":
       div.setAttribute("onclick", "playCardBoard(this)");
       break;
     case ".game-cards-ennemy":
@@ -106,6 +116,7 @@ function addCardBoard(card, position) {
       break;
   }
 
+  
   div.querySelector(".card-description").innerHTML = String(card.mechanics);
   div.querySelector(".card-attack").innerHTML = String(card.atk);
   div.querySelector(".card-health").innerHTML = String(card.hp);
@@ -120,12 +131,35 @@ function addCardBoard(card, position) {
 }
 
 
+const update = gdata =>{
+
+}
+
+const removeCard = newData =>{
+
+  newData.board.forEach(card =>{
+    if (card.hp <=0){
+      document.getElementById(card.uid).remove();
+    }
+  })
+
+  newData.opponent.board.forEach(card =>{
+    if (card.hp <=0){
+      document.getElementById(card.uid).remove();
+    }
+  })
+
+}
+
+
 /**
  * Pour envoyer l'information sur l'action du joueur
  */
 function action(uid,type,cible) {
 
-  console.log(type);
+  console.log(uid+"La carte jouer");
+  console.log(type + "Action");
+  console.log(cible + "La carte");
 
   let formData = new FormData();
   formData.append("uid",uid);
@@ -150,12 +184,19 @@ function action(uid,type,cible) {
       else {
         // maVariable est un objet. On pourrait faire, par exemple, maVariable.game.hp ou 
         // maVariable.player.mp
-        
+       
+      
         document.getElementById(uid).remove();
         
         
       }
         
+    }
+    else if (type =="ATTACK"){
+     
+      console.log(data);
+      removeCard(data)
+
     }
     
   })

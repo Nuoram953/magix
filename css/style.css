@@ -4,9 +4,9 @@
   outline: solid #f00 1px !important;
 } */
 
-:root{
-  --card-width:170px;
-  --card-info-width:150px;
+:root {
+  --card-width: 170px;
+  --card-info-width: 150px;
 }
 
 @font-face {
@@ -140,195 +140,227 @@ form > div > button {
   display: flex;
 }
 
-
 .chat-button > form > button {
   margin: 25px;
 }
 
-iframe{
+iframe {
   position: fixed;
   bottom: 0;
   left: 0;
-  
 }
 
-.UI{
-  display:flex;
+.UI {
+  display: flex;
   flex-direction: column;
 }
 
-.game-ui-ennemy{
-  height: 200px;
+.game-ui-ennemy {
+  height: 110px;
+  background-color: grey;
 }
 
-.game-board{
-  height: 500px;
+.game-board {
+  display: flex;
+  flex-direction: column;
 }
 
-.game-ui-player{
-  display:flex;
+.game-cards-ennemy,
+.game-cards-player {
+  flex-direction: row;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  height: 275px;
+}
+.game-cards-ennemy {
+  padding-top: 0;
+}
+
+.game-cards-player {
+  padding-bottom: 0;
+}
+
+.game-cards-ennemy > div,
+.game-cards-player > div {
+  margin: 15px;
+}
+
+.game-ui-player {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  bottom:0;
-  position:fixed;
-  width:100%;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
   height: 275px;
   background-color: gray;
 }
 
-
-.gup-numbers{
-  display:flex;
+.gup-numbers {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width:120px;
-  
+  width: 120px;
 }
-.gup-numbers>div{
-  background-repeat:no-repeat;
+.gup-numbers > div {
+  background-repeat: no-repeat;
   background-size: contain;
   vertical-align: middle;
-  
+
   text-align: center;
   margin: 15px;
-  
+
   align-items: center;
   height: 50px;
   width: 50px;
 }
 
-.gup-numbers>div>span {
- 
+.gup-numbers > div > span {
   display: inline-block;
 }
 
-.health{
-  background-image:url("../assets/UI/newHealth.png"); 
+.health {
+  background-image: url("../assets/UI/newHealth.png");
   margin-top: 10px;
 }
 
-
-
-.tour{
-  background-image:url("../assets/UI/newOrb.png");
-  
+.tour {
+  background-image: url("../assets/UI/newOrb.png");
 }
 
-.cards-remaining{
-  background-image:url("../assets/UI/newBook.png");
-  
+.cards-remaining {
+  background-image: url("../assets/UI/newBook.png");
 }
 
-.gup-button> form{
-  display:flex;
+.gup-button {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.gup-button>form>button{
+.gup-button > button,
+.gup-button > form > button {
   margin: 15px;
   width: 100px;
   height: 50px;
-  
 }
 
-.gup-cards{
-  display:inline-flex;
-  flex-direction:row;
-  justify-content:space-around;
-  
+.gup-cards {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+
   width: 1200px;
   padding: 15px;
   height: fit-content;
-  
-
- 
-  
 }
-.gup-cards>div{
+.gup-cards > div {
   margin-inline-start: 20px;
 }
 
-.card{
-  display:flex;
-  flex-direction:column;
+.card {
+  display: flex;
+  flex-direction: column;
   height: 245px;
   width: var(--card-width);
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  
-  
-  font-size:12px;
+
+  font-size: 12px;
   background-image: url("../assets/UI/block-minecraft-wallpaper-680x382.jpg");
   background-size: cover;
   color: white;
-  
-  
 }
 
-.card-picture{
+.card-picture {
   height: 85px;
   width: var(--card-info-width);
-  
+
   background-size: cover;
-  
+
   margin: 0 5px 5px 5px;
   border: white 2px solid;
-
 }
 
-.card-info{
-  display:flex;
+.card-info {
+  display: flex;
   flex-direction: column;
   height: 75px;
   width: var(--card-info-width);
   padding-bottom: 3px;
 }
 
-
-
-.card-cost{
+.card-header {
+  width:200px;
+  height:30px;
+  display:inline-block;  
+  
   position: relative;
-  top: 0;
-  left: 0;
+  margin: 5px;
 }
 
-.card-stats{
-  display:flex;
-  justify-content:space-around;
+
+.card-cost {
+  background-image: url("../assets/UI/newOrb.png");
+  background-size:45px;
+  background-position: right;
+  background-repeat: no-repeat;
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  width: 45px;
+  height: 30px;
+  padding-left: 10px;
+  margin-left: 20px;
+  
+}
+
+.card-taunt {
+  background-image: url("../assets/UI/test.png");
+  background-size:40px;
+  background-position: right;
+  background-repeat: no-repeat;
+  position: absolute;
+  
+  
+  right: 0;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  
+  visibility: hidden;
+ 
+}
+
+.card-stats {
+  display: flex;
+  justify-content: space-around;
   width: var(--card-info-width);
   height: 35px;
   padding-top: 8px;
   color: white;
 }
 
-.card-health{
+.card-health {
   background-image: url("../assets/UI/newHealth.png");
   background-size: 35px;
-  background-position: center center;
+  background-position: left;
   width: 35px;
-  
- 
 }
 
-.card-attack{
+.card-attack {
   background-image: url("../assets/UI/attack-removebg-preview.png");
   background-size: 35px;
   background-position: center center;
   width: 35px;
-
 }
 
-.game-ui-ennemy{
-  background-color: grey;
-}
-
-.cardPossibleToPlay{
+.cardPossibleToPlay {
   border: green 2px solid;
 }
-
-
-
-
