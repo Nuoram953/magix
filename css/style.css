@@ -364,3 +364,12 @@ iframe {
 .cardPossibleToPlay {
   border: green 2px solid;
 }
+
+.error-message{
+  color: red;
+  position: absolute;
+  top: 50;
+  padding:0;
+  margin: 0;
+  visibility: hidden;
+}

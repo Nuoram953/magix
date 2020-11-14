@@ -5,9 +5,25 @@ let currentCardUID = null;
 let gData = null
 let placeholder = null;
 let attackCardWith = null;
-
-
 let playACard = null;
+
+let dictError = {
+  "INVALID_ACTION":"L'action est invalide",
+  "ACTION_IS_NOT_AN_OBJECT": "L'action n'est pas un objet",
+  "NOT_ENOUGH_ENERGY":"Vous n'avez pas assez d'energie pour jouer cette carte",
+  "BOARD_IS_FULL":"Pas assez de place pour la carte",
+  "CARD_NOT_IN_HAND":"La carte n’est pas dans votre main",
+  "CARD_IS_SLEEPING":"Carte ne peut être jouée ce tour-ci",
+  "MUST_ATTACK_TAUNT_FIRST":"Une carte taunt empêche ce coup",
+  "OPPONENT_CARD_NOT_FOUND":"La carte attaquée n’est pas présente sur le jeu",
+  "CARD_NOT_FOUND":"La carte cherchée (uid) n’est pas présente",
+  "ERROR_PROCESSING_ACTION":"Erreur interne, ne devrait pas se produire",
+  "INTERNAL_ACTION_ERROR":"Autre erreur interne, ne devrait pas se produire",
+  "HERO_POWER_ALREADY_USED":"Pouvoir déjà utilisé pour ce tour"
+};
+
+
+
 
 const state = () => {
 
@@ -39,7 +55,7 @@ const state = () => {
           if (( document.getElementById(card.uid)==null && document.getElementById(card.uid) == undefined ) && document.querySelector(".gup-cards").childElementCount <= 8) {
             addCardBoard(card, ".gup-cards");
           }
-          card.cost <= data.mp ? document.getElementById(card.uid).style.border = "5px green solid" : document.getElementById(card.uid).style.border = "none";
+          card.cost <= data.mp && data.yourTurn ? document.getElementById(card.uid).style.border = "5px green solid" : document.getElementById(card.uid).style.border = "none";
         });
 
         //Les cartes sur le jeu cote joueur
@@ -47,7 +63,10 @@ const state = () => {
           if (( document.getElementById(card.uid)==null && document.getElementById(card.uid) == undefined ) && document.querySelector(".game-cards-player").childElementCount <= 7){
             addCardBoard(card, ".game-cards-player");
           }
+
+          updateCard(card);
          
+          card.state != "SLEEP" && data.yourTurn ? document.getElementById(card.uid).style.border = "5px yellow solid" : document.getElementById(card.uid).style.border = "none";
           card.mechanics.includes("Taunt") ? document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "visible": document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "hidden";
         });
 
@@ -55,7 +74,9 @@ const state = () => {
           if (( document.getElementById(card.uid)==null && document.getElementById(card.uid) == undefined ) && document.querySelector(".game-cards-ennemy").childElementCount <= 7){
             addCardBoard(card, ".game-cards-ennemy");
           }
-           card.mechanics.includes("Taunt") ? document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "visible": document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "hidden";
+
+          updateCard(card);
+          card.mechanics.includes("Taunt") ? document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "visible": document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "hidden";
         })
 
     
@@ -133,16 +154,18 @@ function addCardBoard(card, position) {
   document.querySelector(position).appendChild(div);
 }
 
-
+const updateCard = card => {
+  let temp = document.getElementById(card.uid);
+  temp.querySelector(".card-health").innerHTML = String(card.hp);
+  temp.querySelector(".card-attack").innerHTML = String(card.atk);
+}
 
 
 const removeCard = newData =>{
   
-  let children = document.querySelector(".game-cards-player").children;
-  let arrayChildren = Array.from(children);
-
+  let childrenPlayer = document.querySelector(".game-cards-player").children;
+  let arrayChildren = Array.from(childrenPlayer);
   let placeholder = Array.from(newData.board);
-  
 
   arrayChildren.forEach(child =>{
     if(!placeholder.some(item => item.uid == child.id)){
@@ -150,6 +173,31 @@ const removeCard = newData =>{
     }
 
   })
+
+  let childEnnemy = document.querySelector(".game-cards-ennemy").children;
+  let arrayChildrenEnnemy = Array.from(childEnnemy);
+  let placeholderEnnemy = Array.from(newData.opponent.board);
+
+  arrayChildrenEnnemy.forEach(child =>{
+    if(!placeholderEnnemy.some(item => item.uid == child.id)){
+      child.remove()
+    }
+
+  })
+
+}
+
+const errorMessage = data => {
+
+  console.log("Boucle error");
+
+  document.querySelector(".error-message").style.visibility = "visible";
+  document.querySelector(".error-message").innerHTML = dictError[data];
+
+  setTimeout(()=>{
+    document.querySelector(".error-message").style.visibility = "hidden";
+  },3000)
+
 
 }
 
@@ -177,47 +225,15 @@ function action(uid,type,cible) {
   .then(response => response.json())
   .then(data => {
 
-
-    
-
     if (type == "PLAY"){
-      if (typeof data !== "object") {
-        if (data == "GAME_NOT_FOUND") {
-            // Fin de la partie. Est-ce que j’ai gagné? Je dois appeler user-info
-        }
-      }
-      else {
-        // maVariable est un objet. On pourrait faire, par exemple, maVariable.game.hp ou 
-        // maVariable.player.mp
-       
-      
-        document.getElementById(uid).remove();
-        
-        
-      }
-        
+      typeof data !== "object" ? errorMessage(data) : document.getElementById(uid).remove(); 
     }
-    else if (type =="ATTACK"){
-     
-      if (typeof data !== "object") {
-        if (data == "GAME_NOT_FOUND") {
-            // Fin de la partie. Est-ce que j’ai gagné? Je dois appeler user-info
-        }
+    else if(type == "ATTACK" || type == "END_TURN"){
+      if(typeof data !== "object"){
+        errorMessage(data)
       }
-      else {
-        // maVariable est un objet. On pourrait faire, par exemple, maVariable.game.hp ou 
-        // maVariable.player.mp
-       
-        
-        
-        
-      }
-      
 
     }
-
-    
-    
   })
 
   }

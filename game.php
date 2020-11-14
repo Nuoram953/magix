@@ -24,6 +24,7 @@ require_once("partials/header.php");
         <div class="game-board">
             <div class="game-cards-ennemy"></div>
             <div class="game-cards-player"></div>
+            <div class="error-message"></div>
         </div>
 
         <div class="game-ui-player">
