@@ -1,3 +1,9 @@
+
+//TODO:UI
+//TODO:UI de l'ennemi
+//TODO:Fin de la partie
+
+
 let playerHand = null;
 let templateHTML = null;
 let cardInHand = [];
@@ -79,8 +85,13 @@ const state = () => {
           card.mechanics.includes("Taunt") ? document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "visible": document.getElementById(card.uid).querySelector(".card-taunt").style.visibility = "hidden";
         })
 
-    
         removeCard(data);
+
+        document.querySelector(".health").innerHTML = data.hp;
+        document.querySelector(".tour").innerHTML = data.mp;
+        document.querySelector(".cards-remaining").innerHTML = data.remainingCardsCount;
+
+
       }
 
       
@@ -104,20 +115,12 @@ window.addEventListener("load", () => {
 /**
  * Fonction onclick selon la carte (Sur le jeu, dans les mains du joueurs et sur le jeu de l'ennemi)
  */
-const playCard = (evt) => {
-  console.log(evt.id); // Retourne le uid de la carte
-  action(evt.id,"PLAY",null);
-};
+const playCard = (evt) => action(evt.id,"PLAY",null);
+const playCardBoard = (evt) => attackCardWith = evt.id;
+const attackCard = (evt) =>  action(attackCardWith,"ATTACK",evt.id);
+  
+ 
 
-const playCardBoard = (evt) => {
-  attackCardWith = evt.id
-  console.log(attackCardWith);
-}
-
-const attackCard = (evt) => {
-  console.log(evt.id);
-  action(attackCardWith,"ATTACK",evt.id);
-}
 
 
 
@@ -141,10 +144,10 @@ function addCardBoard(card, position) {
   }
 
   
-  div.querySelector(".card-description").innerHTML = String(card.mechanics);
-  div.querySelector(".card-attack").innerHTML = String(card.atk);
-  div.querySelector(".card-health").innerHTML = String(card.hp);
-  div.querySelector(".card-cost").innerHTML = String(card.cost);
+  div.querySelector(".card-description").innerHTML = card.mechanics;
+  div.querySelector(".card-attack").innerHTML = card.atk;
+  div.querySelector(".card-health").innerHTML = card.hp;
+  div.querySelector(".card-cost").innerHTML = card.cost;
   //TODO: change image depending on type of cards
   div.querySelector(".card-picture").style.backgroundImage =
     "url(assets/cards/zombie.jpg)";
@@ -189,8 +192,6 @@ const removeCard = newData =>{
 
 const errorMessage = data => {
 
-  console.log("Boucle error");
-
   document.querySelector(".error-message").style.visibility = "visible";
   document.querySelector(".error-message").innerHTML = dictError[data];
 
@@ -206,10 +207,6 @@ const errorMessage = data => {
  * Pour envoyer l'information sur l'action du joueur
  */
 function action(uid,type,cible) {
-
-  console.log(uid+"La carte jouer");
-  console.log(type + "Action");
-  console.log(cible + "La carte");
 
   let formData = new FormData();
   formData.append("uid",uid);

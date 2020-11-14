@@ -31,9 +31,7 @@ require_once("partials/header.php");
 
 
             <div class="gup-numbers">
-                <div class="health">
-                    <span>30</span>
-                </div>
+                <div class="health">30</div>
                 <div class="tour">1</div>
                 <div class="cards-remaining">24</div>
             </div>
