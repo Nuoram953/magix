@@ -28,6 +28,18 @@ let dictError = {
   "HERO_POWER_ALREADY_USED":"Pouvoir déjà utilisé pour ce tour"
 };
 
+let dictState = {
+  "WAITING":"EN ATTENTE D'UN ADVERSAIRE",
+  "LAST_GAME_WON": "BRAVO, VOUS AVEZ GAGNÉ LA PARTIE",
+  "LAST_GAME_LOST": "MEILLEURE CHANCE LA PROCHAINE FOIS!"
+}
+
+let dictStateColor = {
+  "WAITING":"white",
+  "LAST_GAME_WON": "green",
+  "LAST_GAME_LOST": "red"
+}
+
 
 
 
@@ -51,7 +63,10 @@ const state = () => {
       /**
        * Gestion des cartes et de leur apparence
        */
-      if (data != "WAITING") {
+      if (data != "WAITING" && data != "LAST_GAME_LOST" && data != "LAST_GAME_WON") {
+
+        document.querySelector(".state-game").style.visibility = "hidden";
+        
         
         //Les cartes dans la main du joueur
         data.hand.forEach((card) => {
@@ -88,12 +103,16 @@ const state = () => {
         document.querySelector(".health").innerHTML = data.hp;
         document.querySelector(".tour").innerHTML = data.mp;
         document.querySelector(".cards-remaining").innerHTML = data.remainingCardsCount;
+        document.querySelector(".tour-time-remaining").innerHTML = data.remainingTurnTime;
+        document.querySelector(".frame-health").innerHTML = data.opponent.hp;
+        document.querySelector(".frame-cost").innerHTML = data.opponent.mp;
 
 
+      }else{
+        document.querySelector(".state-game").style.visibility = "visible";
+        document.querySelector(".state-game").style.color = dictStateColor[data];
+        document.querySelector(".state-game").innerHTML = dictState[data];
       }
-
-      
-      
 
       setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
     });
@@ -104,10 +123,13 @@ window.addEventListener("load", () => {
   document.getElementById("endTurn").addEventListener("click",()=>{
     action(null,"END_TURN",null);
   });
+
+  document.querySelector(".frame-portrait").addEventListener("click",()=>{
+    action(attackCardWith,"ATTACK",0);
+  })
   
   setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
 });
-
 
 
 /**
@@ -117,11 +139,6 @@ const playCard = (evt) => action(evt.id,"PLAY",null);
 const playCardBoard = (evt) => attackCardWith = evt.id;
 const attackCard = (evt) =>  action(attackCardWith,"ATTACK",evt.id);
   
- 
-
-
-
-
 function addCardBoard(card, position) {
 
   let div = document.createElement("div");
@@ -180,7 +197,6 @@ const removeCard = newData =>{
     }
 
   })
-
 }
 
 const errorMessage = data => {
@@ -191,10 +207,7 @@ const errorMessage = data => {
   setTimeout(()=>{
     document.querySelector(".error-message").style.visibility = "hidden";
   },3000)
-
-
 }
-
 
 /**
  * Pour envoyer l'information sur l'action du joueur

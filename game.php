@@ -31,6 +31,7 @@ require_once("partials/header.php");
             <div class="game-cards-ennemy"></div>
             <div class="game-cards-player"></div>
             <div class="error-message"></div>
+            <div class="state-game"></div>
         </div>
 
         <div class="game-ui-player">
@@ -70,7 +71,7 @@ require_once("partials/header.php");
                         <button class="button" id="abandon" value="abandon" name="abandon">Abandon</button>
                     </form>
                    
-                    <span id="tour-time-remaining"></span>
+                    <div class="tour-time-remaining"></div>
                 
             </div>
 

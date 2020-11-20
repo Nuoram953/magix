@@ -161,7 +161,7 @@ iframe {
 
 .game-ui-ennemy {
   height: 110px;
-  background-color:  rgba(191, 191, 191, 0.3);
+  background-image:url("../assets/backgrounds/netherbrick.png");
   display:flex;
   justify-content:space-around
 }
@@ -241,7 +241,7 @@ iframe {
   position: fixed;
   width: 100%;
   height: 275px;
-  background-color: rgba(191, 191, 191, 0.3);
+  background-image:url("../assets/backgrounds/netherbrick.png")
 
   
 }
@@ -290,11 +290,16 @@ iframe {
   justify-content: space-between;
 }
 
-.gup-button > button,
-.gup-button > form > button {
+.gup-button > *{
   margin: 15px;
   width: 100px;
-  height: 50px;
+  height: 60px;
+  text-align: center;
+}
+
+.gup-button > form>button{
+  height: 40px;
+  width:100px;
 }
 
 .gup-cards {
@@ -426,4 +431,25 @@ iframe {
   padding:0;
   margin: 0;
   visibility: hidden;
+}
+
+
+.state-game{
+  color: red;
+  position: absolute;
+  top: 41%;
+  left: 50%;
+  width: 65%;
+  font-size: 75px;
+  justify-content: center;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  padding:0;
+  margin: 0;
+  visibility: hidden;
+}
+
+.tour-time-remaining{
+  color:white;
+  font-size: 25px;
 }
