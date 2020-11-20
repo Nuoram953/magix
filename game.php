@@ -37,10 +37,16 @@ require_once("partials/header.php");
         <div class="game-ui-player">
 
 
-            <div class="gup-numbers">                
-                <div class="health">30</div>
-                <div class="tour">1</div>
-                <div class="cards-remaining">24</div>
+            <div class="gup-numbers">
+                <div class="player-frame">
+                    <div class="health">30</div>
+                </div>
+                <div class="player-frame">
+                    <div class="tour">1</div>
+                </div>
+                <div class="player-frame">
+                    <div class="cards-remaining">24</div>
+                </div>                
             </div>
             <div class="gup-cards">
                 <template id="player-card-template">
