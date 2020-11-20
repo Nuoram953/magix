@@ -18,7 +18,13 @@ require_once("partials/header.php");
 
     <div class="UI">
         <div class="game-ui-ennemy">
-
+            <div class="ui-cards-ennemy">1</div>
+            <div class="ui-frame-ennemy">
+                <div class="frame-health">1</div>
+                <div class="frame-portrait"></div>
+                <div class="frame-cost">1</div>
+            </div>
+            <div class="ui-remaining-ennemy">3</div>
         </div>
 
         <div class="game-board">
@@ -30,7 +36,7 @@ require_once("partials/header.php");
         <div class="game-ui-player">
 
 
-            <div class="gup-numbers">
+            <div class="gup-numbers">                
                 <div class="health">30</div>
                 <div class="tour">1</div>
                 <div class="cards-remaining">24</div>

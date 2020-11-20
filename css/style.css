@@ -153,12 +153,57 @@ iframe {
 .UI {
   display: flex;
   flex-direction: column;
+  background-image: url("../assets/backgrounds/play.jpg");
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
 }
 
 .game-ui-ennemy {
   height: 110px;
-  background-color: grey;
+  background-color:  rgba(191, 191, 191, 0.3);
+  display:flex;
+  justify-content:space-around
 }
+
+.ui-frame-ennemy{
+  display:flex;
+  flex-direction: row;
+}
+
+.frame-portrait{
+  background-image: url("../assets/UI/frame.jpg");
+  background-size: cover;
+  background-position:center;
+  width: 150px;
+  height: 110px;
+  border: 2px solid black;
+}
+
+.frame-health{
+  background-image: url("../assets/UI/newHealth.png");
+  width: 150px;
+  height: 110px;
+  background-position:center;
+  background-size: 50px;
+  background-repeat: no-repeat;
+  text-align: center;
+  vertical-align: middle;
+  line-height:110px;
+}
+
+.frame-cost{
+  background-image: url("../assets/UI/newOrb.png");
+  width: 150px;
+  height: 110px;
+  background-position:center;
+  background-size: 100px;
+  background-repeat: no-repeat;
+  text-align: center;
+  vertical-align: middle;
+  line-height:110px;
+}
+
 
 .game-board {
   display: flex;
@@ -196,7 +241,9 @@ iframe {
   position: fixed;
   width: 100%;
   height: 275px;
-  background-color: gray;
+  background-color: rgba(191, 191, 191, 0.3);
+
+  
 }
 
 .gup-numbers {
@@ -206,17 +253,18 @@ iframe {
   width: 120px;
 }
 .gup-numbers > div {
-  background-repeat: no-repeat;
-  background-size: contain;
-  vertical-align: middle;
-
-  text-align: center;
-  margin: 15px;
-
-  align-items: center;
+  width: 150px;
   height: 50px;
-  width: 50px;
+  background-position:center;
+  background-size: contain;
+
+  background-repeat: no-repeat;
+  text-align: center;
+  vertical-align: middle;
+  line-height:50px;
 }
+
+
 
 .gup-numbers > div > span {
   display: inline-block;
@@ -229,6 +277,7 @@ iframe {
 
 .tour {
   background-image: url("../assets/UI/newOrb.png");
+  
 }
 
 .cards-remaining {

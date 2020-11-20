@@ -48,8 +48,6 @@ const state = () => {
         "#player-card-template"
       ).innerHTML += "";
 
-      document.querySelector(".tour").textContent = String(data.mp);
-
       /**
        * Gestion des cartes et de leur apparence
        */
@@ -143,16 +141,11 @@ function addCardBoard(card, position) {
       break;
   }
 
-  
   div.querySelector(".card-description").innerHTML = card.mechanics;
   div.querySelector(".card-attack").innerHTML = card.atk;
   div.querySelector(".card-health").innerHTML = card.hp;
   div.querySelector(".card-cost").innerHTML = card.cost;
-  //TODO: change image depending on type of cards
-  div.querySelector(".card-picture").style.backgroundImage =
-    "url(assets/cards/zombie.jpg)";
-
- 
+  div.querySelector(".card-picture").style.backgroundImage = "url(assets/cards/zombie.jpg)";
 
   document.querySelector(position).appendChild(div);
 }
