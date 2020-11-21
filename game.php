@@ -20,9 +20,13 @@ require_once("partials/header.php");
         <div class="game-ui-ennemy">
             <div class="ui-cards-ennemy">1</div>
             <div class="ui-frame-ennemy">
-                <div class="frame-health">1</div>
-                <div class="frame-portrait"></div>
-                <div class="frame-cost">1</div>
+                <div class="player-frame">
+                    <div class="frame-health">1</div>
+                </div>
+                <div class="frame-portrait" id="portrait"></div>
+                <div class="player-frame">
+                    <div class="frame-cost">1</div>
+                </div>
             </div>
             <div class="ui-remaining-ennemy">3</div>
         </div>

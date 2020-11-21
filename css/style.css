@@ -153,7 +153,8 @@ iframe {
 .UI {
   display: flex;
   flex-direction: column;
-  background-image: url("../assets/backgrounds/play.jpg");
+  background-image: url("../assets/backgrounds/play2.png");
+  background-size:cover;
   height: 100vh;
   width: 100%;
   background-size: cover;
@@ -171,6 +172,21 @@ iframe {
 .ui-frame-ennemy{
   display:flex;
   flex-direction: row;
+  width: 400px;
+  height: 75px;
+  justify-content:space-evenly;
+  margin-top: 5px;
+}
+
+.ui-frame-ennemy>div:not(#portrait){
+  width: 150px;
+  height: 75px;
+  background-position:center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  vertical-align: middle;
+  line-height:75px;
 }
 
 .frame-portrait{
@@ -184,26 +200,16 @@ iframe {
 
 .frame-health{
   background-image: url("../assets/UI/newHealth.png");
-  width: 150px;
-  height: 110px;
-  background-position:center;
+  background-position: center;
   background-size: 50px;
   background-repeat: no-repeat;
-  text-align: center;
-  vertical-align: middle;
-  line-height:110px;
 }
 
 .frame-cost{
   background-image: url("../assets/UI/newOrb.png");
-  width: 150px;
-  height: 110px;
-  background-position:center;
-  background-size: 100px;
+  background-position: center;
+  background-size: 75px;
   background-repeat: no-repeat;
-  text-align: center;
-  vertical-align: middle;
-  line-height:110px;
 }
 
 
@@ -341,7 +347,6 @@ iframe {
   align-items: center;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-
   font-size: 12px;
   background-image: url("../assets/UI/block-minecraft-wallpaper-680x382.jpg");
   background-size: cover;
