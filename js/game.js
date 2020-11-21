@@ -127,6 +127,10 @@ window.addEventListener("load", () => {
   document.querySelector(".frame-portrait").addEventListener("click",()=>{
     action(attackCardWith,"ATTACK",0);
   })
+
+  document.querySelector("#heropower").addEventListener("click",()=>{
+    action(null,"HERO_POWER",null);
+  })
   
   setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
 });
@@ -231,7 +235,7 @@ function action(uid,type,cible) {
     if (type == "PLAY"){
       typeof data !== "object" ? errorMessage(data) : document.getElementById(uid).remove(); 
     }
-    else if(type == "ATTACK" || type == "END_TURN"){
+    else if(type == "ATTACK" || type == "END_TURN" || type =="HERO_POWER"){
       if(typeof data !== "object"){
         errorMessage(data)
       }

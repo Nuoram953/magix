@@ -225,7 +225,7 @@ iframe {
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  padding: 15px;
+  
   height: 275px;
 }
 .game-cards-ennemy {
@@ -444,7 +444,7 @@ iframe {
 .error-message{
   color: red;
   position: absolute;
-  top: 41%;
+  top: 70%;
   left: 50%;
   width: 65%;
   justify-content: center;

@@ -75,7 +75,7 @@ require_once("partials/header.php");
             </div>
             <div class="gup-button">
                 
-                    <button class="button" value="heropower" name="heropower">Hero Power</button>
+                    <button class="button"  id="heropower" value="heropower" name="heropower">Hero Power</button>
                     <button class="button" id="endTurn" value="endturn" name="endturn">End turn</button>
                     <form action="" method="post">
                         <button class="button" id="abandon" value="abandon" name="abandon">Abandon</button>

@@ -31,6 +31,7 @@ class AjaxChosenAction extends CommonAction
             $data["targetuid"] = $_POST["targetuid"];
 
         }
+        
 
         $result = parent::callAPI("games/action", $data);
         if ($result == "INVALID_KEY") {
