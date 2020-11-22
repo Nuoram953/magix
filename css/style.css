@@ -164,7 +164,7 @@ iframe {
   height: 110px;
   background-image:url("../assets/backgrounds/netherbrick.png");
   display:flex;
-  justify-content:space-around;
+  justify-content:space-evenly;
   border-bottom: 4px solid black;
   border-style: normal;
 }
@@ -174,7 +174,7 @@ iframe {
   flex-direction: row;
   width: 400px;
   height: 75px;
-  justify-content:space-evenly;
+  justify-content:space-around;
   margin-top: 5px;
 }
 
@@ -187,6 +187,34 @@ iframe {
   text-align: center;
   vertical-align: middle;
   line-height:75px;
+}
+
+.game-ui-ennemy>.player-frame{
+  width: 150px;
+  height: 75px;
+  background-position:center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  vertical-align: middle;
+  line-height:75px;
+  margin-left: 250px;
+  margin-top:5px;
+  
+}
+
+.ui-cards-ennemy{
+  width: 400px;
+}
+
+.ui-remaining-ennemy{
+  width: 150px;
+  height: 75px;
+  background-image:url("../assets/UI/newBook.png");
+  background-position: center;
+  background-size: 75px;
+  background-repeat: no-repeat;
+ 
 }
 
 .frame-portrait{

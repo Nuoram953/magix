@@ -12,8 +12,6 @@ class AjaxChosenAction extends CommonAction
     protected function executeAction()
     {
 
-
-
         $data = [];
         $data["key"] = $_SESSION["key"];
         $data["type"] = $_POST["type"];

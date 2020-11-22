@@ -17,14 +17,7 @@
             if ($result == "INVALID_KEY") {
                 header("location:chat.php");
 
-            } 
-        
-            else {
-                // Pour voir les informations retournées : var_dump($result);exit;
             }
-            
-
-        
 
             return compact("result");
         }

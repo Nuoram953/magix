@@ -63,8 +63,8 @@ const state = () => {
       /**
        * Gestion des cartes et de leur apparence
        */
-      if (data != "WAITING" && data != "LAST_GAME_LOST" && data != "LAST_GAME_WON") {
-
+      if (typeof data == "object") {
+        
         document.querySelector(".state-game").style.visibility = "hidden";
         
         
@@ -112,6 +112,12 @@ const state = () => {
         document.querySelector(".state-game").style.visibility = "visible";
         document.querySelector(".state-game").style.color = dictStateColor[data];
         document.querySelector(".state-game").innerHTML = dictState[data];
+        if (data == "LAST_GAME_LOST" || data == "LAST_GAME_WON"){
+          setTimeout(()=>{
+            document.location.href = "chat.php"
+          },5000)
+        }
+        
       }
 
       setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel

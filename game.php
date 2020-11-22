@@ -28,7 +28,9 @@ require_once("partials/header.php");
                     <div class="frame-cost">1</div>
                 </div>
             </div>
-            <div class="ui-remaining-ennemy">3</div>
+            <div class="player-frame">
+                <div class="ui-remaining-ennemy">3</div>
+            </div>
         </div>
 
         <div class="game-board">
