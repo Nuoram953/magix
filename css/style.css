@@ -205,6 +205,9 @@ iframe {
 
 .ui-cards-ennemy{
   width: 400px;
+  justify-content:space-evenly;
+  display:flex;
+  flex-direction: row;
 }
 
 .ui-remaining-ennemy{
@@ -379,6 +382,13 @@ iframe {
   background-image: url("../assets/UI/block-minecraft-wallpaper-680x382.jpg");
   background-size: cover;
   color: white;
+}
+
+.card-background{
+  background-image: url("../assets/backgrounds/login.jpg");
+  height: 75px;
+  width: 50px;
+  margin-top: 5px;
 }
 
 .card-picture {

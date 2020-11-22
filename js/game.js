@@ -6,6 +6,7 @@
 
 let playerHand = null;
 let templateHTML = null;
+let templateCardHTML = null;
 let cardInHand = [];
 let currentCardUID = null;
 let gData = null
@@ -56,9 +57,8 @@ const state = () => {
 
       gdata = data
 
-      templateHTML = document.querySelector(
-        "#player-card-template"
-      ).innerHTML += "";
+ 
+
 
       /**
        * Gestion des cartes et de leur apparence
@@ -67,6 +67,15 @@ const state = () => {
         
         document.querySelector(".state-game").style.visibility = "hidden";
         
+          if (document.querySelector(".ui-cards-ennemy").childElementCount != data.opponent.handSize){
+            let temp = Array.from(document.querySelector(".ui-cards-ennemy").children)
+            temp.forEach(child => {
+              child.remove()
+            })
+            for (let i =0;i<data.opponent.handSize;i++) {
+              addCardBoard(null, ".ui-cards-ennemy")
+            }
+          }
         
         //Les cartes dans la main du joueur
         data.hand.forEach((card) => {
@@ -125,6 +134,10 @@ const state = () => {
 };
 
 window.addEventListener("load", () => {
+
+
+  templateHTML = document.querySelector("#player-card-template").innerHTML += "";
+  templateCardHTML = document.querySelector("#cards-ennemy").innerHTML += "";
   
   document.getElementById("endTurn").addEventListener("click",()=>{
     action(null,"END_TURN",null);
@@ -152,27 +165,42 @@ const attackCard = (evt) =>  action(attackCardWith,"ATTACK",evt.id);
 function addCardBoard(card, position) {
 
   let div = document.createElement("div");
-  div.innerHTML = templateHTML;
-  div.className = "card"
-  div.id = card.uid;
+  if (position == ".ui-cards-ennemy"){
+    div.innerHTML = templateCardHTML;
+   
+  }
+  else{
 
-  switch (position) {
-    case ".gup-cards":
-      div.setAttribute("onclick", "playCard(this)");
-      break;
-    case ".game-cards-player":
-      div.setAttribute("onclick", "playCardBoard(this)");
-      break;
-    case ".game-cards-ennemy":
-      div.setAttribute("onclick", "attackCard(this)");
-      break;
+    div.innerHTML = templateHTML;
   }
 
-  div.querySelector(".card-description").innerHTML = card.mechanics;
-  div.querySelector(".card-attack").innerHTML = card.atk;
-  div.querySelector(".card-health").innerHTML = card.hp;
-  div.querySelector(".card-cost").innerHTML = card.cost;
-  div.querySelector(".card-picture").style.backgroundImage = "url(assets/cards/zombie.jpg)";
+  if (card != null){
+
+    div.className = "card"
+    div.id = card.uid;
+
+    switch (position) {
+      case ".gup-cards":
+        div.setAttribute("onclick", "playCard(this)");
+        break;
+      case ".game-cards-player":
+        div.setAttribute("onclick", "playCardBoard(this)");
+        break;
+      case ".game-cards-ennemy":
+        div.setAttribute("onclick", "attackCard(this)");
+        break;
+  }
+
+    div.querySelector(".card-description").innerHTML = card.mechanics;
+    div.querySelector(".card-attack").innerHTML = card.atk;
+    div.querySelector(".card-health").innerHTML = card.hp;
+    div.querySelector(".card-cost").innerHTML = card.cost;
+    div.querySelector(".card-picture").style.backgroundImage = "url(assets/cards/zombie.jpg)";
+  }else{
+
+    div.className = "card-background"
+  }
+  
 
   document.querySelector(position).appendChild(div);
 }

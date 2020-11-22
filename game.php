@@ -18,7 +18,11 @@ require_once("partials/header.php");
 
     <div class="UI">
         <div class="game-ui-ennemy">
-            <div class="ui-cards-ennemy">1</div>
+            <div class="ui-cards-ennemy">
+                <template id="cards-ennemy">
+                    
+                </template>
+            </div>
             <div class="ui-frame-ennemy">
                 <div class="player-frame">
                     <div class="frame-health">1</div>
