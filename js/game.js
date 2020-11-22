@@ -9,7 +9,6 @@ let templateHTML = null;
 let templateCardHTML = null;
 let cardInHand = [];
 let currentCardUID = null;
-let gData = null
 let placeholder = null;
 let attackCardWith = null;
 let playACard = null;
@@ -54,12 +53,7 @@ const state = () => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data); // contient les cartes/état du jeu.
-
-      gdata = data
-
- 
-
-
+      
       /**
        * Gestion des cartes et de leur apparence
        */
@@ -165,14 +159,8 @@ const attackCard = (evt) =>  action(attackCardWith,"ATTACK",evt.id);
 function addCardBoard(card, position) {
 
   let div = document.createElement("div");
-  if (position == ".ui-cards-ennemy"){
-    div.innerHTML = templateCardHTML;
-   
-  }
-  else{
 
-    div.innerHTML = templateHTML;
-  }
+  position == ".ui-cards-ennemy" ? div.innerHTML = templateCardHTML :  div.innerHTML = templateHTML;
 
   if (card != null){
 
