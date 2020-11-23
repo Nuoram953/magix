@@ -15,7 +15,7 @@
                 $count = 0;
 
                 $connection = Connection::getConnection();
-                $statement = $connection->prepare("SELECT * FROM player");
+                $statement = $connection->prepare("SELECT * FROM player ORDER BY date_match DESC");
 
                 $statement->setFetchMode(PDO::FETCH_ASSOC);
                 $statement->execute();

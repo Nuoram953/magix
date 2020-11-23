@@ -9,6 +9,13 @@
 
 
     <div class="all-matches">
+
+             <div>
+                <span>Joueur</span>
+                <span>Adversaire</span>
+                <span>Date</span>
+                <span>Gagnant</span>
+            </div>
   
 
 	<?php
@@ -17,11 +24,11 @@
             
             if ($data["data"]["test".$i]){
                 ?>
-            <div class="match">
-                <span class="match history"><?= $data["data"]["test".$i]["player1"] ?></span>
-                <span class="match history"><?= $data["data"]["test".$i]["player2"] ?></span>
-                <span class="match history"><?= $data["data"]["test".$i]["date_match"] ?></span>
-                <span class="match history"><?= $data["data"]["test".$i]["gagnant"] ?></span>
+            <div>
+                <span><?= $data["data"]["test".$i]["player1"] ?></span>
+                <span><?= $data["data"]["test".$i]["player2"] ?></span>
+                <span><?= $data["data"]["test".$i]["date_match"] ?></span>
+                <span><?= $data["data"]["test".$i]["gagnant"] ?></span>
             </div>
 
         <?php

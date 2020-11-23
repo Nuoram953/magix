@@ -516,3 +516,32 @@ iframe {
   color:white;
   font-size: 25px;
 }
+
+.all-matches{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+}
+.all-matches>div {
+  margin: 20px 0 20px 0;
+  width: 800px;
+  
+  
+  
+  
+}
+.all-matches>div>span {
+  float: left;
+  justify-content:left;
+  margin: 0 30px 0 30px;
+  width: 140px;
+
+  
+}
