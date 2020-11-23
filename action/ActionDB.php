@@ -14,7 +14,7 @@ class ActionDB extends CommonAction
     protected function executeAction()
     {
 
-        try{
+        if($_POST["player2"]!= null){ // Dans le cas ou que nous sommes pas capable de se connecter a une game pvp
             $connection = Connection::getConnection();
             $statement = $connection->prepare("INSERT INTO player VALUES (?,?,default,?)");
             $statement->bindParam(1,$_POST["player1"]);
@@ -22,10 +22,9 @@ class ActionDB extends CommonAction
             $statement->bindParam(3,$_POST["gagnant"]);
             $statement->execute();
         }
-        catch(PDOException $e){
-            $e ->getMessage();
-            echo $e;
-        }
+
+      
+        
    
        
     }

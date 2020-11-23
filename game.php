@@ -42,6 +42,10 @@ require_once("partials/header.php");
             <div class="game-cards-player"></div>
             <div class="error-message"></div>
             <div class="state-game"></div>
+            <div id="chat-button"></div>
+            
+            <iframe id="chat-box" style="width:700px;height:240px;" onload="applyStyles(this)" src=<?= "https://magix.apps-de-cours.com/server/#/chat/" . $_SESSION["key"]  ?>></iframe>
+            
         </div>
 
         <div class="game-ui-player">
@@ -86,6 +90,7 @@ require_once("partials/header.php");
                     <form action="" method="post">
                         <button class="button" id="abandon" value="abandon" name="abandon">Abandon</button>
                     </form>
+                   
                    
                     <div class="tour-time-remaining"></div>
                 

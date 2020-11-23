@@ -41,10 +41,29 @@ class ChatAction extends CommonAction
             else if ($result == "DECK_INCOMPLETE"){
 
             }
+            else if($result == "JOINED_TRAINING") {
+                header("location:game.php");
+            }
+
+        }
+        else if (isset($_POST["begin"])){
+            $data = [];
+            $data["key"] = $_SESSION["key"];
+            $data["type"] = "PVP";
+            $result = parent::callAPI("games/auto-match", $data);
+            if ($result == "INVALID_KEY") {
+                header("location:index.php");
+            }
+            else if ($result == "INVALID_GAME_TYPE"){
+
+            }
             else if ($result == "DECK_INCOMPLETE"){
 
             }
-            else if($result == "JOINED_TRAINING") {
+            else if ($result == "MAX_DEATH_THRESHOLD_REACHED"){
+
+            }
+            else if($result == "JOINED_TRAINING" || $result == "CREATED_PVP" || $result == "JOINED_PVP") {
                 header("location:game.php");
             }
 

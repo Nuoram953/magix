@@ -154,6 +154,11 @@ window.addEventListener("load", () => {
 
   templateHTML = document.querySelector("#player-card-template").innerHTML += "";
   templateCardHTML = document.querySelector("#cards-ennemy").innerHTML += "";
+
+
+  document.querySelector("#chat-button").addEventListener("click", ()=>{
+    document.querySelector("#chat-box").style.visibility == "visible" ?  document.querySelector("#chat-box").style.visibility = "hidden" :  document.querySelector("#chat-box").style.visibility = "visible";
+  })
   
   document.getElementById("endTurn").addEventListener("click",()=>{
     action(null,"END_TURN",null);
