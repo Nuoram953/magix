@@ -21,11 +21,15 @@
                 $statement->execute();
                 
                 
-                $data["test0"] = "Test0";
-                $data["test1"] = "Test1";
-                $data["test2"] = "Test2";
+                while ($count != 10){
+                    
+                    $data["test".$count] = $statement->fetch();
 
-                $count++;
+
+
+                    $count++;
+                }
+
                 
 
                 

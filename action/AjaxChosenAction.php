@@ -15,6 +15,13 @@ class AjaxChosenAction extends CommonAction
         $data = [];
         $data["key"] = $_SESSION["key"];
         $data["type"] = $_POST["type"];
+        
+        
+       
+
+        if ($_POST["state"] == "end"){
+            MatchDAO::addMatch("LAST_GAME_WON");
+        }
 
 
         if ($data["type"] == "END_TURN"){

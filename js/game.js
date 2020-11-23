@@ -12,6 +12,8 @@ let currentCardUID = null;
 let placeholder = null;
 let attackCardWith = null;
 let playACard = null;
+let alreadyInDB = false;
+let username = null;
 
 let dictError = {
   "INVALID_ACTION":"L'action est invalide",
@@ -58,7 +60,8 @@ const state = () => {
        * Gestion des cartes et de leur apparence
        */
       if (typeof data == "object") {
-        
+
+        username = data.opponent.username;
         document.querySelector(".state-game").style.visibility = "hidden";
         
           if (document.querySelector(".ui-cards-ennemy").childElementCount != data.opponent.handSize){
@@ -116,7 +119,23 @@ const state = () => {
         document.querySelector(".state-game").style.visibility = "visible";
         document.querySelector(".state-game").style.color = dictStateColor[data];
         document.querySelector(".state-game").innerHTML = dictState[data];
-        if (data == "LAST_GAME_LOST" || data == "LAST_GAME_WON"){
+        if (data == "LAST_GAME_LOST" || data == "LAST_GAME_WON" ){
+          if(!alreadyInDB){
+            alreadyInDB = true;
+
+            let formData = new FormData();
+
+            formData.append("player1","Nuoram953");
+            formData.append("player2",username);
+            formData.append("gagnant", data == "LAST_GAME_WON" ? "Nuoram953" : username)
+
+
+            fetch("DB.php", {
+              method: "POST",
+              credentials: "include",
+              body: formData
+            })
+          }
           setTimeout(()=>{
             document.location.href = "chat.php"
           },5000)
@@ -124,7 +143,9 @@ const state = () => {
         
       }
 
-      setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
+    
+        setTimeout(state, 1000); // Attendre 1 seconde avant de relancer l’appel
+      
     });
 };
 
@@ -144,6 +165,19 @@ window.addEventListener("load", () => {
 
   document.querySelector("#heropower").addEventListener("click",()=>{
     action(null,"HERO_POWER",null);
+  })
+
+  document.querySelector("#abandon").addEventListener("click",()=>{
+    let formData = new FormData();
+
+      formData.append("player1","Nuoram953");
+      formData.append("player2",username);
+      formData.append("gagnant", username); 
+      fetch("DB.php", {
+        method: "POST",
+        credentials: "include",
+        body: formData
+      })
   })
   
   setTimeout(state, 1000); // Appel initial (attendre 1 seconde)
@@ -239,12 +273,16 @@ const errorMessage = data => {
 /**
  * Pour envoyer l'information sur l'action du joueur
  */
-function action(uid,type,cible) {
+function action(uid,type,cible,state=null) {
+  
+
 
   let formData = new FormData();
   formData.append("uid",uid);
   formData.append("type",type);
   formData.append("targetuid",cible);
+  formData.append("state",state);
+ 
 
   fetch("ajaxChosen.php", {
     method: "POST",
@@ -254,6 +292,7 @@ function action(uid,type,cible) {
   })
   .then(response => response.json())
   .then(data => {
+
 
     if (type == "PLAY"){
       typeof data !== "object" ? errorMessage(data) : document.getElementById(uid).remove(); 
