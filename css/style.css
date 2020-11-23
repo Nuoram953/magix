@@ -387,6 +387,8 @@ iframe {
 .card-background{
   background-image: url("../assets/UI/background-card.jpg");
   background-position:center;
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 75px;
   width: 50px;
   margin-top: 5px;

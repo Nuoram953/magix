@@ -21,6 +21,7 @@ require_once("partials/header.php");
             <form action="" method="post" id="form-button">
                 <button class="button" type="submit" value="begin" name="begin">Jouer</button>
                 <button class="button" type="submit" value="practice" name="practice">Pratique</button>
+                <button class="button" type="submit" value="history" name="history">History</button>
                 <button class="button" type="submit" value="Signout" name="signout">Quitter</button>
             </form>
         </div>

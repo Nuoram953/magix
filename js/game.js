@@ -109,6 +109,7 @@ const state = () => {
         document.querySelector(".tour-time-remaining").innerHTML = data.remainingTurnTime;
         document.querySelector(".frame-health").innerHTML = data.opponent.hp;
         document.querySelector(".frame-cost").innerHTML = data.opponent.mp;
+        document.querySelector(".ui-remaining-ennemy").innerHTML = data.opponent.remainingCardsCount;
 
 
       }else{

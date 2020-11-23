@@ -1,4 +1,5 @@
 <?php
+    require_once("action/constants.php");
     session_start();
     abstract class CommonAction {
         protected static $VISIBILITY_PUBLIC = 0;

@@ -49,6 +49,9 @@ class ChatAction extends CommonAction
             }
 
         }
+        else if(isset($_POST["history"])){
+            header("location:history.php");
+        }
    
         return [];
     }
