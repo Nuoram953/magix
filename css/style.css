@@ -553,13 +553,18 @@ iframe {
 
 #chat-button{
   position:absolute;
+  background-image:url("../assets/UI/chat.png");
   background-color:white;
+  background-position: center;
+  background-size: cover;
   height:25px;
   width:25px;
 }
 
-#chat-box{
+.chatbox{
   position:absolute;
+  height: 240px;
+  width: 700px;
   visibility:hidden;
   top: 40%;
 }

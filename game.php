@@ -44,7 +44,9 @@ require_once("partials/header.php");
             <div class="state-game"></div>
             <div id="chat-button"></div>
             
-            <iframe id="chat-box" style="width:700px;height:240px;" onload="applyStyles(this)" src=<?= "https://magix.apps-de-cours.com/server/#/chat/" . $_SESSION["key"]  ?>></iframe>
+            
+            <iframe class="chatbox" id="chat-box" style="width:700px;height:240px;" onload="applyStyles(this)" src=<?= "https://magix.apps-de-cours.com/server/#/chat/" . $_SESSION["key"]  ?>></iframe>
+            
             
         </div>
 
