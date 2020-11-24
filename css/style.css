@@ -568,3 +568,18 @@ iframe {
   visibility:hidden;
   top: 40%;
 }
+
+.bird{
+  height: 50px;
+  width: 50px;
+  background-image:url("../assets/sprite/flappy.jpg");
+  position: absolute;
+  background-position: center;
+  background-size:cover;
+  
+}
+
+.animation{
+  height: 200px;
+  width: 1920px;
+}
