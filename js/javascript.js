@@ -20,7 +20,8 @@ const tick = () => {
 
   
 
-    document.querySelector(".animation").onclick = evt => {
+    if (Math.random() < 0.1 && spriteList.length<3) {
+        console.log("test");
         spriteList.push(new Bird())
     }
        
@@ -54,8 +55,10 @@ const applyStyles = iframe => {
 class Bird {
     constructor() {
         
-        this.x = 0;
-        this.y = 50;
+        this.x = -50;
+        this.y = (Math.random()*150)+25;
+
+        this.speed = Math.random()*3
 
         this.node = document.createElement('div')
         this.node.className = "bird"
@@ -68,7 +71,7 @@ class Bird {
     tick() {
         let alive = true;
 
-        this.x += 5;
+        this.x += this.speed;
 
         if (this.x > 1920) {
             this.node.remove()

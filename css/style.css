@@ -572,7 +572,7 @@ iframe {
 .bird{
   height: 50px;
   width: 50px;
-  background-image:url("../assets/sprite/flappy.jpg");
+  background-image:url("../assets/sprite/flappy.png");
   position: absolute;
   background-position: center;
   background-size:cover;
