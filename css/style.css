@@ -53,10 +53,7 @@ button {
   background-repeat: no-repeat;
 }
 
-.error-message {
-  border: 3px solid red;
-  padding: 10px;
-}
+
 
 /*Les lignes de codes si dessous sont tirées du site http://charliecowan.co.uk/mcbuttongenerator/ pour l'apparence du bouton*/
 
@@ -221,7 +218,7 @@ iframe {
 }
 
 .frame-portrait{
-  background-image: url("../assets/UI/frame.jpg");
+  background-image: url("../assets/cards/blaze.png");
   background-size: cover;
   background-position:center;
   width: 150px;
@@ -443,10 +440,13 @@ iframe {
   background-size:40px;
   background-position: right;
   background-repeat: no-repeat;
-  position: absolute;
+  position: relative;
+  float:right;
+  
   
   
   right: 0;
+  bottom:10px;
   width: 40px;
   height: 40px;
   margin-bottom: 10px;
@@ -554,11 +554,11 @@ iframe {
 #chat-button{
   position:absolute;
   background-image:url("../assets/UI/chat.png");
-  background-color:white;
+  
   background-position: center;
   background-size: cover;
-  height:25px;
-  width:25px;
+  height:40px;
+  width:40px;
 }
 
 .chatbox{

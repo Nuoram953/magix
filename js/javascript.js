@@ -55,10 +55,14 @@ const applyStyles = iframe => {
 class Bird {
     constructor() {
         
-        this.x = -50;
+        this.x = 0;
         this.y = (Math.random()*150)+25;
 
         this.speed = Math.random()*3
+
+        document.querySelector('.animation').addEventListener("click", () => {
+            this.speed = -this.speed;
+        })
 
         this.node = document.createElement('div')
         this.node.className = "bird"
@@ -66,6 +70,8 @@ class Bird {
         this.node.style.left = this.x + "px";
 
         document.querySelector('.animation').appendChild(this.node)
+
+
     }
 
     tick() {
@@ -73,7 +79,9 @@ class Bird {
 
         this.x += this.speed;
 
-        if (this.x > 1920) {
+       
+
+        if (this.x > 1920 || this.x < -1) {
             this.node.remove()
             alive = false;
         }

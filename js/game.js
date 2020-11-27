@@ -15,6 +15,13 @@ let playACard = null;
 let alreadyInDB = false;
 let username = null;
 
+let dictCardPhoto = [
+  "url(assets/cards/zombie.jpg)",
+  "url(assets/cards/pig.jpg)",
+  "url(assets/cards/dog.png)",
+  "url(assets/cards/creeper.png)"
+]
+
 let dictError = {
   "INVALID_ACTION":"L'action est invalide",
   "ACTION_IS_NOT_AN_OBJECT": "L'action n'est pas un objet",
@@ -223,7 +230,9 @@ function addCardBoard(card, position) {
     div.querySelector(".card-attack").innerHTML = card.atk;
     div.querySelector(".card-health").innerHTML = card.hp;
     div.querySelector(".card-cost").innerHTML = card.cost;
-    div.querySelector(".card-picture").style.backgroundImage = "url(assets/cards/zombie.jpg)";
+    //div.querySelector(".card-picture").style.backgroundImage = "url(assets/cards/zombie.jpg)";
+   
+    div.querySelector(".card-picture").style.backgroundImage = dictCardPhoto[Math.floor(Math.random()*dictCardPhoto.length)];
   }else{
 
     div.className = "card-background"

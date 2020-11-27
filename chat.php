@@ -26,9 +26,22 @@ require_once("partials/header.php");
             </form>
         </div>
 
-        
+        <?php
+        if (isset($data["isValid"])) {
+
+        ?>
+
+            <div class="error-message" style=visibility:visible>
+                <strong>test</strong>
+            </div>
+        <?php
+        }
+        ?>
+
+
+
         <iframe id="chat-box" style="width:700px;height:240px;" onload="applyStyles(this)" src=<?= "https://magix.apps-de-cours.com/server/#/chat/" . $_SESSION["key"]  ?>></iframe>
-       
+
     </div>
 
 

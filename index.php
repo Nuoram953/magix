@@ -13,6 +13,10 @@ require_once("partials/header.php");
 </head>
 <body class="login">
     <div class="animation" height="200" width="1920"></div>
+
+    <div class="error-message" style="visibility: <?= !$data["isValid"] && isset($data["isValid"]) ? "visible" : "hidden" ?>"">
+        <strong>Votre identifiant ou votre mot de passe est erroné</strong>
+    </div>
         
     
     <div class="login-container">
@@ -20,9 +24,7 @@ require_once("partials/header.php");
         <div class="login-info">
             <form action=" index.php" method="post">
                 
-                <div class="error-message" style="display: <?= !$data["isValid"] ? "block" : "none" ?>"">
-                    <strong>Error message!</strong>
-                </div>
+                
                 <input type=" text" name="username" id="username" placeholder="Username">
                 <input type="password" name="password" id="password" placeholder="Password">
                 <div class="button">

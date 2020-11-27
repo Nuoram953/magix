@@ -13,6 +13,7 @@ class ChatAction extends CommonAction
 
     protected function executeAction()
     {
+        $isValid = null;
 
         if(isset($_POST["signout"])){
             $data = [];
@@ -35,14 +36,11 @@ class ChatAction extends CommonAction
             if ($result == "INVALID_KEY") {
                 header("location:index.php");
             }
-            else if ($result == "INVALID_GAME_TYPE"){
-
-            }
-            else if ($result == "DECK_INCOMPLETE"){
-
-            }
             else if($result == "JOINED_TRAINING") {
                 header("location:game.php");
+            }
+            else{
+                $isValid = $result;
             }
 
         }
@@ -54,17 +52,10 @@ class ChatAction extends CommonAction
             if ($result == "INVALID_KEY") {
                 header("location:index.php");
             }
-            else if ($result == "INVALID_GAME_TYPE"){
-
-            }
-            else if ($result == "DECK_INCOMPLETE"){
-
-            }
-            else if ($result == "MAX_DEATH_THRESHOLD_REACHED"){
-
-            }
             else if($result == "JOINED_TRAINING" || $result == "CREATED_PVP" || $result == "JOINED_PVP") {
                 header("location:game.php");
+            }else{
+                $isValid = $result;
             }
 
         }
@@ -72,6 +63,6 @@ class ChatAction extends CommonAction
             header("location:history.php");
         }
    
-        return [];
+        return compact("isValid");
     }
 }
