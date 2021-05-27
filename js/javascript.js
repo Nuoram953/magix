@@ -1,7 +1,4 @@
 
-
-let canvas = null;
-let ctx = null;
 let spriteList = [];
 
 
@@ -10,6 +7,7 @@ window.addEventListener("load", ()=>{
 
    
 
+    
     tick();
 
 })
@@ -21,13 +19,13 @@ const tick = () => {
   
 
     if (Math.random() < 0.1 && spriteList.length<3) {
-        console.log("test");
+        
         spriteList.push(new Bird())
     }
        
     for (let i = 0; i < spriteList.length; i++) {
         const sprite = spriteList[i];
-        console.log(sprite);
+       
         let alive = sprite.tick();
 
         if (!alive) {

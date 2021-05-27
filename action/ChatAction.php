@@ -20,7 +20,7 @@ class ChatAction extends CommonAction
             $data["key"] = $_SESSION["key"];
             $result = parent::callAPI("signout", $data);
             if ($result == "INVALID_KEY") {
-                // err
+                $isValid = $result;
             } else {
                 session_destroy();
                 header("location:index.php");

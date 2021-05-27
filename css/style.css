@@ -583,3 +583,11 @@ iframe {
   height: 200px;
   width: 1920px;
 }
+
+.chat-username{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: min-content;
+  margin: 25px;
+}

@@ -29,6 +29,7 @@ class IndexAction extends CommonAction
             } else {
                 // Pour voir les informations retournées : var_dump($result);exit;
                 $_SESSION["key"] = $result->key;
+                $_SESSION["username"] = $data["username"];
                 header("location:chat.php");
             }
         }

@@ -32,7 +32,7 @@ require_once("partials/header.php");
         ?>
 
             <div class="error-message" style=visibility:visible>
-                <strong>test</strong>
+                <strong><?= $data["isValid"] ?></strong>
             </div>
         <?php
         }
@@ -41,6 +41,8 @@ require_once("partials/header.php");
 
 
         <iframe id="chat-box" style="width:700px;height:240px;" onload="applyStyles(this)" src=<?= "https://magix.apps-de-cours.com/server/#/chat/" . $_SESSION["key"]  ?>></iframe>
+
+        <div class=chat-username>Utilisateur:  <?= $_SESSION["username"] ?></div>
 
     </div>
 

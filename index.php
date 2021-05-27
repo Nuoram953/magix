@@ -16,6 +16,8 @@ require_once("partials/header.php");
 
     <div class="error-message" style="visibility: <?= !$data["isValid"] && isset($data["isValid"]) ? "visible" : "hidden" ?>"">
         <strong>Votre identifiant ou votre mot de passe est erroné</strong>
+        
+
     </div>
         
     

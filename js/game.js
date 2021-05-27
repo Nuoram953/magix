@@ -19,7 +19,14 @@ let dictCardPhoto = [
   "url(assets/cards/zombie.jpg)",
   "url(assets/cards/pig.jpg)",
   "url(assets/cards/dog.png)",
-  "url(assets/cards/creeper.png)"
+  "url(assets/cards/creeper.png)",
+  "url(assets/cards/cow.jpg)",
+  "url(assets/cards/enderman.jpg)",
+  "url(assets/cards/ghast.jpg)",
+  "url(assets/cards/fox.jpg)",
+  "url(assets/cards/golem.jpg)",
+  "url(assets/cards/spider.jpg)",
+  "url(assets/cards/herobrine.png)",
 ]
 
 let dictError = {
@@ -232,7 +239,7 @@ function addCardBoard(card, position) {
     div.querySelector(".card-cost").innerHTML = card.cost;
     //div.querySelector(".card-picture").style.backgroundImage = "url(assets/cards/zombie.jpg)";
    
-    div.querySelector(".card-picture").style.backgroundImage = dictCardPhoto[Math.floor(Math.random()*dictCardPhoto.length)];
+    div.querySelector(".card-picture").style.backgroundImage = dictCardPhoto[card.cost];
   }else{
 
     div.className = "card-background"

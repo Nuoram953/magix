@@ -17,7 +17,7 @@ class ActionDB extends CommonAction
         if($_POST["player2"]!= null){ // Dans le cas ou que nous sommes pas capable de se connecter a une game pvp
             $connection = Connection::getConnection();
             $statement = $connection->prepare("INSERT INTO player VALUES (?,?,default,?)");
-            $statement->bindParam(1,$_POST["player1"]);
+            $statement->bindParam(1,$_SESSION["username"]);
             $statement->bindParam(2,$_POST["player2"]);
             $statement->bindParam(3,$_POST["gagnant"]);
             $statement->execute();
